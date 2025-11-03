@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>OSI BGC</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!-- Forepage -->
+<div id="forepage" class="page active">
+  <div class="forepage-container">
+    <img src="https://cdn.discordapp.com/attachments/1156600924568039497/1432837493648265458/OSILogo.png?ex=690918e7&is=6907c767&hm=1e3ddada333bd63000babf85108a73404eedf80b602c6693e967a01f9a5f4c49&" alt="OSI Logo" class="logo" />
+    <h2>🔐 Access Verification</h2>
+    <input id="username" type="text" placeholder="Enter Roblox username" />
+    <button id="verifyBtn">Verify Access</button>
+    <p id="errorMsg" class="error">You do not have permission to access this page.</p>
+  </div>
+</div>
+
+<!-- Loading screen -->
+<div id="loadingScreen" class="loading-screen">
+  <img src="https://cdn.discordapp.com/attachments/1156600924568039497/1432837493648265458/OSILogo.png?ex=690918e7&is=6907c767&hm=1e3ddada333bd63000babf85108a73404eedf80b602c6693e967a01f9a5f4c49&" alt="Loading Logo" />
+  <div class="loading-text">Verifying...</div>
+</div>
+
+<!-- Scanner -->
+<div id="scanner" class="page">
+  <img src="https://cdn.discordapp.com/attachments/1156600924568039497/1432837493648265458/OSILogo.png?ex=690918e7&is=6907c767&hm=1e3ddada333bd63000babf85108a73404eedf80b602c6693e967a01f9a5f4c49&" alt="OSI Logo" />
+  <h2>🛰️ OSI Background Check</h2>
+  <input type="text" placeholder="Enter Roblox username..." />
+  <button>Scan</button>
+  <div id="result"></div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

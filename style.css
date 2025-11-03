@@ -1,0 +1,301 @@
+/* ===========================
+   GENERAL STYLES
+=========================== */
+body {
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at top, #0a0e13, #000);
+  color: #e6edf3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Background glow */
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      ellipse at center,
+      rgba(35, 134, 54, 0.25),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse at top right,
+      rgba(66, 133, 244, 0.15),
+      transparent 60%
+    );
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* ===========================
+   PAGE STRUCTURE
+=========================== */
+.page {
+  display: none;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto;
+  position: relative;
+  z-index: 1;
+}
+
+.page.active {
+  display: block;
+}
+
+/* ===========================
+   FOREPAGE (Login Screen)
+=========================== */
+.forepage-container {
+  background: rgba(22, 27, 34, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(35, 134, 54, 0.3);
+  transition: all 0.3s ease;
+  margin-bottom: 3rem;
+}
+
+.forepage-container:hover {
+  box-shadow: 0 0 35px rgba(35, 134, 54, 0.6);
+}
+
+.forepage-container input {
+  width: 220px;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background: #0d1117;
+  color: white;
+  text-align: center;
+  box-shadow: inset 0 0 5px rgba(35, 134, 54, 0.5);
+}
+
+.forepage-container button {
+  margin: 1rem auto;
+  background: #238636;
+  border: none;
+  padding: 0.6rem 1.6rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 0 12px rgba(35, 134, 54, 0.4);
+}
+
+.forepage-container button:hover {
+  background: #2ea043;
+  box-shadow: 0 0 18px rgba(46, 160, 67, 0.8);
+}
+
+.error {
+  color: #f85149;
+  font-weight: 600;
+  display: none;
+}
+
+/* ===========================
+   LOGO
+=========================== */
+.site-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 10px rgba(35, 134, 54, 0.6));
+  transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   LOADING SCREEN
+=========================== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 17, 23, 0.98);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.loading-screen.active {
+  display: flex;
+}
+
+.loading-screen img {
+  width: 100px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 15px rgba(35, 134, 54, 0.6));
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   SCANNER PAGE
+=========================== */
+#scanner input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  background: #0d1117;
+  color: white;
+  box-shadow: inset 0 0 5px rgba(35, 134, 54, 0.5);
+}
+
+#scanner button {
+  background: #238636;
+  border: none;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+  box-shadow: 0 0 10px rgba(35, 134, 54, 0.4);
+}
+
+#scanner button:hover {
+  background: #2ea043;
+  box-shadow: 0 0 15px rgba(46, 160, 67, 0.8);
+}
+
+#scanner img {
+  width: 100px;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 12px rgba(35, 134, 54, 0.5));
+  transition: transform 0.3s ease;
+}
+
+#scanner img:hover {
+  transform: scale(1.05);
+}
+
+/* ===========================
+   EMBED CARDS
+=========================== */
+.embed {
+  background: rgba(22, 27, 34, 0.9);
+  border-left: 4px solid #238636;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 0 8px rgba(35, 134, 54, 0.4);
+}
+
+.embed-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.embed-line {
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+}
+
+.division-card,
+.subdivision-card {
+  background: #21262d;
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin: 0.3rem 0;
+}
+
+/* ===========================
+   TYPING EFFECT
+=========================== */
+.cursor {
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ===========================
+   LOGOUT BUTTON
+=========================== */
+.logout-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: #2d7a2d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 0 10px rgba(35, 134, 54, 0.5);
+}
+
+.logout-btn:hover {
+  background: #1f5a1f;
+  box-shadow: 0 0 15px rgba(46, 160, 67, 0.8);
+}
+
+/* ===========================
+   CUSTOM SCROLLBAR
+=========================== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1117;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #238636, #2ea043);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(35, 134, 54, 0.7);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2ea043, #3fb950);
+  box-shadow: 0 0 15px rgba(46, 160, 67, 0.9);
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #238636 #0d1117;
+}
