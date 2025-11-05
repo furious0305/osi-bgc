@@ -129,6 +129,28 @@ document
       );
       const groupsData = await groupsRes.json();
       const groups = groupsData.data || [];
+      // --- Main group rank ---
+      const mainGroup = groups.find((g) => g.group.id === 3054949);
+      let mainGroupRankHTML = "";
+
+      if (mainGroup) {
+        mainGroupRankHTML = `
+    <div class="embed">
+      <div class="embed-title">Main Group Rank</div>
+      <div class="embed-line">
+        <strong>${mainGroup.group.name}</strong><br>
+        → ${mainGroup.role.name}
+      </div>
+    </div>
+  `;
+      } else {
+        mainGroupRankHTML = `
+    <div class="embed">
+      <div class="embed-title">Main Group Rank</div>
+      <div class="embed-line">User is not in the main group.</div>
+    </div>
+  `;
+      }
 
       // Step 4 — Divisions/Subdivisions
       const DIVISIONS = {
@@ -190,18 +212,19 @@ document
         : `<div class="embed"><div class="embed-title">Subdivisions</div><div class="embed-line">No subdivisions found.</div></div>`;
 
       const htmlContent = `
-      <div class="embed">
-        <div class="embed-title">OSI Background Report</div>
-        <div class="embed-line"><strong>Username:</strong> ${user.name}</div>
-        <div class="embed-line"><strong>Roblox ID:</strong> ${userId}</div>
-        <div class="embed-line"><strong>Account Age:</strong> ${ageDays} days (~${ageYears} years)</div>
-        <div class="embed-line"><strong>Description:</strong> ${
-          userInfo.description || "No description available."
-        }</div>
-      </div>
-      ${divisionHTML}
-      ${subdivHTML}
-    `;
+  <div class="embed">
+    <div class="embed-title">OSI Background Report</div>
+    <div class="embed-line"><strong>Username:</strong> ${user.name}</div>
+    <div class="embed-line"><strong>Roblox ID:</strong> ${userId}</div>
+    <div class="embed-line"><strong>Account Age:</strong> ${ageDays} days (~${ageYears} years)</div>
+    <div class="embed-line"><strong>Description:</strong> ${
+      userInfo.description || "No description available."
+    }</div>
+  </div>
+  ${mainGroupRankHTML}
+  ${divisionHTML}
+  ${subdivHTML}
+`;
 
       // --- Typewriter effect ---
       typeEffect(resultDiv, htmlContent, 8);
